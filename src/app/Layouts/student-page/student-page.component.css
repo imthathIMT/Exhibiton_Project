@@ -1,0 +1,66 @@
+/* Header and Footer Heights */
+.navbar {
+  height: 80px;
+}
+
+footer {
+  height: 70px;
+}
+
+/* Footer Icon Size */
+footer .bi {
+  font-size: 1.5rem;
+}
+
+.tab-bar__tab-link{
+  text-decoration: none;
+  color: #ffff;
+}
+/* Tab Hover Effects */
+.tab-bar__tab-link:hover,
+.tab-bar__tab-link:focus-visible {
+  color: #95d3fd; /* Original hover color */
+  transform: scale(1.1);
+}
+
+/* Active Tab Style */
+.tab-bar__tab-link.active {
+  color: #0079ca; /* Original active color */
+}
+
+/* Footer Tab Names */
+.tab-bar__tab-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.tab-bar__tab-link.active .tab-bar__tab-name {
+  opacity: 1;
+}
+
+/* Adjustments for Mobile Devices */
+@media (max-width: 576px) {
+  .tab-bar__tab-name {
+    display: none; /* Hide text on small screens */
+  }
+
+  .tab-bar__tab-link {
+    padding: 10px;
+  }
+
+  footer .tab-bar__tabs {
+    flex-direction: row;
+  }
+}
+
+/* Adjustments for larger screens (tablets, desktops) */
+@media (min-width: 577px) {
+  .tab-bar__tab-name {
+    display: block; /* Show text on larger screens */
+  }
+
+  .tab-bar__tab-link {
+    padding: 15px;
+  }
+}

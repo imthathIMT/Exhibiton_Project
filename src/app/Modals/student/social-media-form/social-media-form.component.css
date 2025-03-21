@@ -1,0 +1,28 @@
+/* social-media-links-form.component.css */
+.modal-header {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .modal-body {
+    padding: 1rem 1.5rem;
+  }
+  
+  .form-control {
+    font-size: 0.95rem;
+  }
+  
+  button[type="submit"] {
+    margin-top: 1rem;
+  }
+  .form-control-style {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 25px;
+    border-radius: 8px;
+  }

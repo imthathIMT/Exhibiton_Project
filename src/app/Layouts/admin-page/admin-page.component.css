@@ -1,0 +1,412 @@
+/* Custom CSS */
+
+/* Header - Change Background Color to Gray */
+.bg-gray {
+  background-color: #214164; /* Gray color for the header */
+}
+
+.text-hover-darkBlue {
+  color: #0D1E4C;
+}
+
+.bg-green {
+  background-color: #0D1E4C;
+}
+
+header button:hover {
+  background-color: #a7a5a5cb; /* Darker green on hover */
+}
+
+header button:hover i {
+  color: #ffff; /* Darker green on hover */
+}
+
+/* Tab Hover Effects */
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fbe8a6; /* Original hover color */
+  transform: scale(1.1);
+}
+
+/* Active Tab Style */
+.nav-link.active {
+  color: #f4976c; /* Original active color */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  height: 90vh;
+  width: 80px; /* Default narrow width for the sidebar */
+  background: linear-gradient(135deg, #333, #444); /* Black and gray gradient */
+  backdrop-filter: blur(10px); /* Blur effect */
+  z-index: 1000;
+  padding-top: 10px;
+  transition: width 0.8s ease-in-out; /* Smooth transition on width */
+}
+
+/* Sidebar - Hide text by default */
+.sidebar span, .toggle-button {
+  opacity: 0;
+}
+
+/* Hover Effect for Sidebar */
+.sidebar:hover {
+  width: 250px; /* Expand width on hover */
+}
+
+/* Show text when sidebar is hovered */
+.sidebar:hover .nav-text,.sidebar:hover .toggle-button {
+  opacity: 1;
+  font-size: 1.5rem;
+  transition: width 0.8s ease-in-out;
+}
+
+.sidebar .nav-link {
+  padding: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+/* Active link color */
+.nav-link.active {
+  color:#007bff; /* Active link blue color */
+  /* background-color: rgba(0, 0, 255, 0.1); Optional background color */
+}
+
+.sidebar .nav-item:hover .nav-link {
+  background-color: #555;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.5rem; /* Icon size */
+  margin-right: 10px; /* Space between icon and text */
+  transition: font-size 0.3s ease;
+}
+
+/* Hover Effect for Sidebar Icons */
+.sidebar:hover .nav-item:hover .nav-link i {
+  font-size: 1.8rem; /* Increase icon size on hover */
+  transition: font-size 0.3s ease;
+}
+
+/* Reports sub-links */
+.report-sub-links {
+  display: none;
+  /* position: absolute;
+  top: 36%;
+  left: 75%; */
+  background-color: #696969;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.report-item:hover .report-sub-links {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.report-item .report-sub-links a:hover {
+  background-color: #acaaaa;
+}
+
+.report-item .report-sub-links li {
+  list-style: none;
+}
+
+.report-sub-links a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 5px 10px;
+}
+
+.report-sub-links a:hover {
+  background-color: #acaaaa;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 767px) {
+  .sidebar {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      z-index: 1;
+      transition: transform 0.5s ease-in-out;
+  }
+
+  .sidebar.show {
+      transform: translateX(0);
+  }
+
+  .sidebar .nav-text {
+      display: none;
+  }
+
+  .sidebar .nav-link i {
+      font-size: 1.3rem;
+  }
+
+  /* Sidebar Toggle Button */
+  .btn-light {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+  }
+}
+
+/* Desktop view adjustments */
+@media (min-width: 768px) {
+  .sidebar {
+      position: relative;
+      transform: translateX(0);
+  }
+
+  .sidebar .nav-text {
+      display: inline-block;
+  }
+}
+
+/* Toggle Button Styles */
+.sidebar .btn-toggle-mode {
+  position: absolute;
+  bottom: 20px; /* Position at the bottom of the sidebar */
+  left: 50%;
+  transform: translateX(-50%); /* Center the button horizontally */
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar .btn-toggle-mode i {
+  transition: transform 0.3s ease;
+}
+
+/* Light Mode (default) */
+.sidebar.light-mode {
+  background: linear-gradient(135deg, #999999, #b9b9b9);
+}
+
+.sidebar .light-mode .report-item {
+  background: linear-gradient(135deg, #999999, #b9b9b9);
+}
+
+.sidebar.light-mode .nav-link {
+  color: #333;
+}
+
+.sidebar.light-mode .nav-item:hover .nav-link {
+  background-color: #ddd;
+}
+
+/* Dark Mode */
+.sidebar.dark-mode {
+  background: linear-gradient(135deg, #333, #444);
+}
+
+.sidebar.dark-mode .nav-link {
+  color: #fff;
+}
+
+.sidebar.dark-mode .nav-item:hover .nav-link {
+  background-color: #555;
+}
+
+/* Toggle Button Styles (Custom Switch) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  transition: 0.8s;
+  z-index: 0;
+  border-radius: 34px;
+}
+
+.sun-moon {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+
+input:checked + .slider .sun-moon {
+  left: calc(100% - 30px); /* Moves the icon to the right when toggled */
+  color: #FFD700; /* Sun color */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+/* Moon/Sun Icons for active and inactive states */
+input:checked + .slider .sun-moon .bi-sun  {
+  opacity: 1;
+  color:  #FFD700;;
+}
+
+input:not(:checked) + .slider .sun-moon  .bi-moon {
+  opacity: 1;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round .sun-moon {
+  border-radius: 50%;
+}
+
+/* Optional: Stars and Cloud Animation (use if needed) */
+.stars {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+input:checked + .slider .stars {
+  opacity: 1;
+}
+
+
+/* Hide the footer on smaller screens and show it on medium and above */
+@media (max-width: 767px) {
+  footer {
+    display: none;
+  }
+}
+
+/* Show the footer for medium screens and above */
+@media (min-width: 768px) {
+  footer {
+    display: block;
+  }
+}
+
+/* Footer Tab Layout */
+footer .tab-bar__tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+footer .tab-bar__tab {
+  text-align: center;
+}
+
+footer .tab-bar__tab-name {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+footer .report-sub-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+footer .tab-bar__tab:hover .report-sub-links {
+  display: block;
+}
+
+footer .tab-bar__tab .active {
+  color: #0d6efd; /* Blue for active tab */
+}
+
+/* Hover effect: Change the link color to blue on hover */
+.tab-bar__tab-link:hover {
+  color: #007bff !important; /* Bootstrap's primary blue color */
+}
+
+/* Active state: Set the link color to blue when active */
+.tab-bar__tab-link.active {
+  color: #007bff !important; /* Same blue color for active links */
+}
+
+/* Optional: Change the icon color for active and hover states as well */
+.tab-bar__tab-link:hover i,
+.tab-bar__tab-link.active i {
+  color: #007bff !important;
+}
+
+.report-item{
+  color: #fff;
+}
+
+/* Base styles for the sub-links container */
+.report-item .sub-links-container {
+  display: none; /* Initially hidden */
+  position: absolute;
+  bottom: 100%; /* Position sub-links above the parent link */
+  left: 0;
+  top: 10px;
+  width: 100%; /* Match the width of the parent */
+  z-index: 2; /* Ensure sub-links appear above the Reports link */
+  background-color: #343a40; /* Dark background for sub-links */
+  padding: 5px 0; /* Add padding for spacing between the links */
+}
+
+/* Show sub-links container on hover */
+.report-item:hover .sub-links-container {
+  display: block;
+}
+
+/* Styling for each sub-link */
+.report-item .sub-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+/* Hover effect for sub-links */
+.report-item .sub-links li a:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: white;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 767px) {
+  .report-item .sub-links-container {
+    position: static; /* Remove absolute positioning for small screens */
+    width: auto;
+    top: auto; /* Reset top for small screens */
+    z-index: auto; /* Remove z-index for small screens */
+  }
+}

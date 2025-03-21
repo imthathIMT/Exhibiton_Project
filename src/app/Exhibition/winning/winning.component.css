@@ -1,0 +1,75 @@
+/* Basic modal styling */
+.modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    visibility: hidden;
+    z-index: 1050; /* Make sure it's above other content */
+  }
+  
+  .modal.show {
+    display: flex; /* Show modal */
+    opacity: 1; /* Fade in */
+    visibility: visible; /* Make it visible */
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+  }
+  
+  /* Modal content styling */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 400px; /* Set default width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .close {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .modal-footer {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Modal responsiveness */
+  @media (max-width: 600px) {
+    .modal-content {
+      width: 90%; /* Ensure it fits smaller screens */
+    }
+  }
+  

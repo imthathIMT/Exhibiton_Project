@@ -1,0 +1,133 @@
+<ngx-spinner name="course" [fullScreen]="true" type="ball-fussion" size="medium"></ngx-spinner>
+<div class="modal-header bg-white text-black">
+  <h5 class="modal-title" id="courseModalLabel">{{ courseToEdit ? 'Edit Course' : 'Add Course' }}</h5>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss('cross click')"></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" class="form-control">
+    <p class="message text-center">{{ courseToEdit ? 'Edit the course details' : 'Add a new course to the catalog.' }}</p>
+
+    <div class="row">
+
+
+      <div class="col-12 d-flex justify-content-center">
+        <!-- file-upload.component.html -->
+  
+        <label class="custom-file-upload" for="file">
+          <div class="icon">
+            <!-- Bootstrap Icon for Cloud Upload -->
+            <i
+              class="bi bi-cloud-upload fs-6"
+              style="color: rgba(75, 85, 99, 1)"
+            ></i>
+          </div>
+          <div class="text">
+            <span>Click to upload image</span>
+          </div>
+          <div *ngIf="courseImagePreviewUrl" class="image-preview mt-2">
+            <div class="image-preview-circle">
+              <img [src]="courseImagePreviewUrl" alt="Image Preview" />
+            </div>
+            <p>{{ imageFiles && imageFiles.length > 0 ? imageFiles[0].name : '' }}</p> 
+          </div>
+          
+          <input
+            type="file"
+            id="file"
+            (change)="onImageChange($event)"
+            accept="image/*"
+          />
+        </label>
+        <div *ngIf="courseForm.get('images')?.touched && courseForm.get('images')?.invalid" class="error-message">
+          <small *ngIf="courseForm.get('images')?.hasError('required')">Images are required.</small>
+        </div>
+      </div>
+
+<!--      
+      <div class="col-12 mb-3">
+        <div class="input-field">
+          <input class="input" type="file" formControlName="images" (change)="onImageChange($event)" multiple />
+          <label class="label">Course Images</label>
+         
+        </div>
+      </div> -->
+
+      <div class="col-md-6 col-12 mb-3">
+        <div class="input-field">
+          <input class="input" formControlName="courseName" type="text" required />
+          <label class="label">Course Name</label>
+          <div *ngIf="courseForm.get('courseName')?.touched && courseForm.get('courseName')?.invalid" class="error-message">
+            <small *ngIf="courseForm.get('courseName')?.hasError('required')">Course Name is required.</small>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="col-md-6 col-12 mb-3">
+        <div class="input-field">
+          <select class="input" formControlName="level" required>
+            <!-- <option value="" disabled selected>Select Level</option> -->
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+          </select>
+          <label class="label">Level</label>
+          <div *ngIf="courseForm.get('level')?.touched && courseForm.get('level')?.invalid" class="error-message">
+            <small *ngIf="courseForm.get('level')?.hasError('required')">Level is required.</small>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="col-md-6 col-12 mb-3">
+        <div class="input-field">
+          <select class="input" formControlName="duration" required>
+            <!-- <option value="" disabled selected>Select Duration</option> -->
+            <option value="2">2 Months</option>
+            <option value="6">6 Months</option>
+          </select>
+          <label class="label">Duration (Months)</label>
+          <div *ngIf="courseForm.get('duration')?.touched && courseForm.get('duration')?.invalid" class="error-message">
+            <small *ngIf="courseForm.get('duration')?.hasError('required')">Duration is required.</small>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="col-md-6 col-12 mb-3">
+        <div class="input-field">
+          <input class="input" formControlName="fees" type="number" required />
+          <label class="label">Fees</label>
+          <div *ngIf="courseForm.get('fees')?.touched && courseForm.get('fees')?.invalid" class="error-message">
+            <small *ngIf="courseForm.get('fees')?.hasError('required')">Fees are required.</small>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="col-12 mb-3">
+        <div class="input-field">
+          <textarea class="input" formControlName="description" required></textarea>
+          <label class="label">Course Description</label>
+          <div *ngIf="courseForm.get('description')?.touched && courseForm.get('description')?.invalid" class="error-message">
+            <small *ngIf="courseForm.get('description')?.hasError('required')">Description is required.</small>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+
+   
+    <button type="submit" class="submit-btn" [disabled]="courseForm.invalid">
+
+      <ng-container *ngIf="courseToEdit">
+        <i class="bi bi-pencil-square"></i>
+      </ng-container>
+      <ng-container *ngIf="!courseToEdit">
+        <i class="bi bi-book"></i>
+      </ng-container>
+      {{ courseToEdit ? 'Update' : 'Save' }} Course
+    </button>
+  </form>
+</div>
